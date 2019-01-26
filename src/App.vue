@@ -36,8 +36,12 @@ body,
     height 100%
 
 .container
-    max-width 1280px
+    max-width 1100px
+    min-width 320px
     margin 0 auto
+
+    @media only screen and (max-width: 1024px)
+        padding 0 10px
 
 .page
     position relative

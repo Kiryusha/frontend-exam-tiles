@@ -17,6 +17,7 @@ export default {
     top 0
     left 0
     right 0
+    z-index 10
 
     &__content
         height 60px
@@ -25,6 +26,7 @@ export default {
         display flex
         align-items center
         padding 0 20px
+        background #f
 
     &__link
         font-family 'Roboto Slab', sans-serif
