@@ -19,6 +19,9 @@ module.exports = {
             resolve('./src/'),
             resolve('./node_modules'),
         ],
+        alias: {
+            '@': resolve('./src/'),
+        },
     },
 
     module: {
