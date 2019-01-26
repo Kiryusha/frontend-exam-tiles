@@ -1,12 +1,29 @@
 <template lang="pug">
-    .app-layout
+    .page
+        Header
+        transition(name="fade")
+            router-view
 </template>
 
 <script>
-export default {};
+import Header from '@/components/layout/Header';
+
+export default {
+    components: { Header },
+};
 </script>
 
 <style lang="stylus" scoped>
-    .app-layout
-        background #000
+@require '~normalize.css'
+
+.fade-enter-active,
+.fade-leave-active
+    transition opacity .2s
+
+.fade-enter,
+.fade-leave-to
+    opacity 0
+
+*
+    box-sizing border-box
 </style>

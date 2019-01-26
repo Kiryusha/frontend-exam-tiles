@@ -1,7 +1,6 @@
-<template lang="html">
-    <div class="list">
-
-    </div>
+<template lang="pug">
+    section.list
+        h1 Список
 </template>
 
 <script>
@@ -23,8 +22,8 @@ export default {
             'FETCH_POSTS',
         ]),
     },
-}
+};
 </script>
 
-<style lang="css" scoped>
+<style lang="stylus" scoped>
 </style>
