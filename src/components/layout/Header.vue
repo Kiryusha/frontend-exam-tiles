@@ -4,7 +4,7 @@
             .header__content
                 nav.header__menu
                     router-link.header__item(
-                        v-if="isDetail"
+                        v-if="!isMainPage"
                         :to="'/'"
                     ) Назад на главную
                     .header__item(v-else) Новости
@@ -17,8 +17,8 @@ export default {
     computed: {
         ...mapGetters(['processedPosts']),
 
-        isDetail() {
-            return this.processedPosts.hasOwnProperty(this.$route.params.post);
+        isMainPage() {
+            return this.$route.fullPath === '/';
         },
     },
 };

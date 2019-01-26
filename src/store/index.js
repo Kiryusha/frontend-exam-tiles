@@ -1,5 +1,5 @@
-/* eslint global-require: "off" */
-/* eslint-disable no-shadow */
+import 'babel-polyfill';
+
 import Vue from 'vue';
 import Vuex from 'vuex';
 
