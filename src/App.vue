@@ -1,8 +1,9 @@
 <template lang="pug">
     .page
         Header
-        transition(name="fade")
-            router-view
+        main.page__main
+            transition(name="fade")
+                router-view
 </template>
 
 <script>
@@ -13,7 +14,7 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 @require '~normalize.css'
 
 .fade-enter-active,
@@ -26,4 +27,21 @@ export default {
 
 *
     box-sizing border-box
+
+html,
+body,
+.page
+    font-family 'Open Sans', sans-serif
+    color #3
+    height 100%
+
+.container
+    max-width 1280px
+    margin 0 auto
+
+.page
+    position relative
+
+    &__main
+        padding-top 70px
 </style>

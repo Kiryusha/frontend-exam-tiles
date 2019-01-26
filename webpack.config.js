@@ -6,6 +6,7 @@ const webpack = require('webpack');
 const HtmlPlugin = require('html-webpack-plugin');
 const HtmlTemplatePlugin = require('html-webpack-template');
 const VuePlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 module.exports = {
     context: __dirname,
@@ -19,7 +20,7 @@ module.exports = {
             resolve('./src/'),
             resolve('./node_modules'),
         ],
-        
+
         alias: {
             '@': resolve('./src/'),
         },
@@ -72,6 +73,13 @@ module.exports = {
                 NODE_ENV: `"${process.env.NODE_ENV}"`,
             },
         }),
+
+        new HtmlWebpackIncludeAssetsPlugin({
+            assets: [
+                { path: 'https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Slab&amp;subset=cyrillic', type: 'css' }
+            ],
+            append: true
+        })
     ],
 
     devServer: {

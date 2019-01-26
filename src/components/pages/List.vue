@@ -1,6 +1,7 @@
 <template lang="pug">
     section.list
-        h1 Список
+        .container
+            h1 Список
 </template>
 
 <script>
