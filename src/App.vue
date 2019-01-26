@@ -7,18 +7,28 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import Header from '@/components/layout/Header';
 
 export default {
     components: { Header },
+
+    created() {
+        this.FETCH_POSTS();
+    },
+
+    methods: {
+        ...mapActions([
+            'FETCH_POSTS',
+        ]),
+    },
 };
 </script>
 
 <style lang="stylus">
 @require '~normalize.css'
 
-.fade-enter-active,
-.fade-leave-active
+.fade-enter-active
     transition opacity .2s
 
 .fade-enter,

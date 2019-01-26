@@ -8,7 +8,6 @@ const state = {
         isFetching: false,
         data: [],
     },
-    activePost: {},
 };
 
 const mutations = {
@@ -26,13 +25,26 @@ const actions = {
     FETCH_POSTS({ commit }) {
         commit('FETCHING_POSTS');
         return fetchPosts()
-          .then(response => commit('FETCHED_POSTS', response.data.tiles))
-          .catch(error => Promise.reject(error));
+            .then(response => commit('FETCHED_POSTS', response.data.tiles))
+            .catch(error => Promise.reject(error));
   },
+};
+
+const getters = {
+    processedPosts(state) {
+        if (state.posts.data.length) {
+            return state.posts.data.reduce((obj, post) => {
+                obj[post.id] = post;
+                return obj;
+            }, {});
+        }
+        return {};
+    },
 };
 
 export default {
   state,
   mutations,
   actions,
+  getters,
 };

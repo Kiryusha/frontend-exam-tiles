@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 import Tile from '@/components/elements/Tile';
 
 export default {
@@ -20,16 +20,6 @@ export default {
         ...mapState({
             posts: state => state.news.posts.data,
         }),
-    },
-
-    created() {
-        this.FETCH_POSTS();
-    },
-
-    methods: {
-        ...mapActions([
-            'FETCH_POSTS',
-        ]),
     },
 };
 </script>

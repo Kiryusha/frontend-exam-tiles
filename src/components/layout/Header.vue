@@ -3,11 +3,24 @@
         .container
             .header__content
                 nav.header__menu
-                    router-link.header__link(:to="'/'") Главная
+                    router-link.header__item(
+                        v-if="isDetail"
+                        :to="'/'"
+                    ) Назад на главную
+                    .header__item(v-else) Новости
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
+    computed: {
+        ...mapGetters(['processedPosts']),
+
+        isDetail() {
+            return this.processedPosts.hasOwnProperty(this.$route.params.post);
+        },
+    },
 };
 </script>
 
@@ -28,7 +41,7 @@ export default {
         padding 0 20px
         background #f
 
-    &__link
+    &__item
         font-family 'Roboto Slab', sans-serif
         text-decoration none
         font-size 20px

@@ -1,6 +1,7 @@
 <template lang="pug">
     article.tile(
         :class="{'_double': info.type === 'double'}"
+        @click="handleClick"
     )
         .tile__background(:style="bgImage")
         .tile__content
@@ -9,6 +10,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
     props: {
         info: {
@@ -23,9 +26,21 @@ export default {
         }
     },
 
+    computed: {
+
+    },
+
     created() {
         const randomWidth = Math.floor((Math.random() * 4) + 5);
         this.bgImage = `background-image: url("http://placekitten.com/${randomWidth}00/500");`;
+    },
+
+    methods: {
+        ...mapMutations(['SET_ACTIVE_POST']),
+
+        handleClick() {
+            this.$router.push(`/posts/${this.info.id}/`);
+        }
     }
 };
 </script>
@@ -58,7 +73,7 @@ export default {
         left 0
         right 0
         bottom 0
-        padding 10px
+        padding 20px
         background linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%)
         overflow hidden
 

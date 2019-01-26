@@ -1,6 +1,7 @@
 <template lang="pug">
     section.not-found
-        h1 Такой статьи не существует.
+        .container
+            h1 Такой страницы не существует.
 </template>
 
 <script>
