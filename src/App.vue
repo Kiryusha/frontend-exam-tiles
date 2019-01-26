@@ -1,28 +1,12 @@
-<template>
-<div class="app-layout">
-</div>
+<template lang="pug">
+    .app-layout
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-export default {
-    computed: {
-        ...mapState({
-            posts: state => state.news.posts,
-        }),
-    },
-
-    created() {
-        this.FETCH_POSTS();
-    },
-
-    methods: {
-        ...mapActions([
-            'FETCH_POSTS',
-        ]),
-    },
-};
+export default {};
 </script>
 
-<style>
+<style lang="stylus" scoped>
+    .app-layout
+        background #000
 </style>
